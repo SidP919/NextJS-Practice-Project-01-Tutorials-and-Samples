@@ -1,0 +1,39 @@
+$txt-clr: #fff;
+$bg-clr: #00e5ff;
+$list-heading-size:40px;
+$list-itm-size:24px;
+$list-itm-fnt-wht:600;
+
+.countryList{
+    background-color: $bg-clr;
+    color: $txt-clr;
+
+    h1{
+        text-decoration: underline;
+        font-weight: 800;
+        font-size: $list-heading-size;
+    }
+}
+
+.country{
+    font-size: $list-itm-size;
+    font-weight: $list-itm-fnt-wht;
+    
+    a{
+        cursor: pointer;
+    }
+}
+
+// So, we are using SCSS/SASS to create above styles
+// then we have cut or seperated the client-side code 
+// from the /pages/countries/index.js file and put it 
+// into a newly created /components/countries/Countries.js component. 
+// Then, finally, we have imported our countries.module.scss file 
+// and used it in our Countries.js component.
+// Note: notice how we reference above created styles into our Countries.js component.
+
+// To read more about Styling in Next.js check here- https://beta.nextjs.org/docs/styling/css-modules
+
+// As per the Next.js 13 beta docs, Next.js also works well with Tailwind- https://beta.nextjs.org/docs/styling/tailwind-css
+// We can create NextJS Project preconfigured with Tailwind CSS using below command: 
+// npx create-next-app --tailwind with-tailwindcss-app

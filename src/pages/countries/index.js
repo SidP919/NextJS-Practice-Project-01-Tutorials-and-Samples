@@ -1,24 +1,7 @@
-
+import Countries from '../../components/countries/Countries'
 const CountriesPage = ({countryNames}) => {
     return (
-        <div>
-            <h1>Countries List</h1>
-            <div>
-                <br/>
-                <ul>
-                    {countryNames.map(
-                        (country)=>(
-                            <li>&nbsp;&nbsp;
-                                <a href={
-                                    `./countries/${country}`}
-                                >{country}
-                                </a>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </div>
-        </div>
+        <Countries countryNames={countryNames}/>
     )
 }
 
