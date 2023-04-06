@@ -5,7 +5,7 @@ const CountryDetailsPage = ({country}) => {
             <h1>Country Details</h1>
             <br/><h3>&nbsp;&nbsp;Country's Common Name: {country?.name?.common||"NA"}</h3>
             <br/><h3>&nbsp;&nbsp;Country's Official Name: {country?.name?.official||"NA"}</h3>
-            <br/><h3>&nbsp;&nbsp;Country's Capital: {country?.capital?.[0]}{country?.capital?.[1]||"NA"}</h3>
+            <br/><h3>&nbsp;&nbsp;Country's Capital: {country?.capital?.[0]}{country?.capital?.[1]||""}</h3>
             <br/><div>
                 <h3>&nbsp;&nbsp;Country's Flag: </h3>
                 &nbsp;&nbsp;<img src={country?.flags?.png||"/"} alt={country?.flags?.alt||"NA"}/>
