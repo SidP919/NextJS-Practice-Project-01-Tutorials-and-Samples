@@ -11,7 +11,7 @@ const CountryDetailsPage = ({country}) => {
                 &nbsp;&nbsp;<img src={country?.flags?.png} alt={country?.flags?.alt}/>
             </div>
             <br/><h3>&nbsp;&nbsp;Country's Currency Code: {Object.keys(country?.currencies)?.[0]}</h3>
-            <br/><h3>&nbsp;&nbsp;Country's Currency Code: {country?.currencies?.[Object.keys(country?.currencies)?.[0]].name||"NA"}</h3> {/* Power of Javascript :D :D */}
+            <br/><h3>&nbsp;&nbsp;Country's Currency Name: {country?.currencies?.[Object.keys(country?.currencies)?.[0]].name||"NA"}</h3> {/* Power of Javascript :D :D */}
         </div>
     )
 }

@@ -1,5 +1,5 @@
 const UserPage = ({users}) => {
-    console.log(users)
+
     return(
         <div>
             <h1>Users</h1>

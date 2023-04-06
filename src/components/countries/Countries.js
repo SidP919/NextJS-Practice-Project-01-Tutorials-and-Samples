@@ -6,7 +6,7 @@ const Countries = ({countryNames}) => {
             <div>
                 <br/>
                 <ul>
-                    {countryNames.map(
+                    {countryNames?.map(
                         (country,i)=>(
                             <li 
                             key={i}
@@ -17,7 +17,7 @@ const Countries = ({countryNames}) => {
                                 >{country}
                                 </a>
                             </li>
-                        ))
+                        )) || <li>Country data not available right now, try refreshing again later.</li>
                     }
                 </ul>
             </div>

@@ -1,0 +1,107 @@
+@import 'utilities/variables';
+.headerStyle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 8px;
+    position: fixed;
+    width: 100%;
+    background-color: $bg-clr;
+    border-bottom: 2px solid $txt-clr;
+
+    div Image{
+        object-fit: none;
+    }
+    .navRoutes{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        li{
+            margin: 4px;
+            list-style-type: none;
+            font-weight: 600;
+            font-size: 20px;
+            color: $txt-clr;
+            cursor: pointer;
+
+            &:active,&:hover{
+                text-decoration: underline;
+            }
+        }
+
+        @media screen and (max-width:$small-srn){
+            display: none;
+        }
+        @media screen and (min-width:$large-srn){
+            display: flex;
+        }
+    }
+
+    .hamburgerMenu{
+        display: block;
+
+        @media screen and (max-width:$small-srn){
+            display: block;
+        }
+        @media screen and (min-width:$large-srn){
+            display: none;
+        }
+        .giHamburgerMenu{
+            color: white;
+            cursor: pointer;
+        }
+        div{
+            position: fixed;
+            top: 36px;
+            right: 8px;
+            padding: 16px;
+            background-color: $txt-clr;
+            border-radius: 16px;
+            display: none;
+
+            ul{
+                list-style-type: none;
+                color: $bg-clr;
+                font-weight: 900;
+
+                li{
+                    margin-bottom: 8px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+/* Media Queries */
+/* // Large devices (desktops, more than 1200px) */
+@media (min-width: 1707px) {
+    .hamburgerMenu{
+        display: block;
+    }
+}
+
+/* // Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) { 
+    .hamburgerMenu{
+        display: block;
+    }
+ }
+
+ /* // Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) { 
+    .hamburgerMenu{
+        display: block;
+    }
+}
+
+/* // Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) { 
+    
+ }
+
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+    
+}
