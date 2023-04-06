@@ -8,7 +8,7 @@ const Countries = ({countryNames}) => {
         setSearchQuery(evt.target.value)
         if(searchQuery.length>2){
             setSearchResult(countryNames.filter((country)=>{
-                if(country.indexOf(searchQuery.trim())===-1)
+                if(country.toLowerCase().indexOf(searchQuery.trim().toLowerCase())===-1)
                     return false;
                 else return true;
             }));
@@ -38,7 +38,7 @@ const Countries = ({countryNames}) => {
                 <div>
                     <br/>
                     <ul>
-                        {searchResult?.map(
+                        {(searchResult.length)?(searchResult?.map(
                             (country,i)=>(
                                 <li 
                                 key={i}
@@ -49,7 +49,7 @@ const Countries = ({countryNames}) => {
                                     >{country}
                                     </a>
                                 </li>
-                            )) || <li>Country data not available right now, try refreshing again later.</li>
+                            ))):(<li className='py-3 px-4 font-bold text-xl'>Your search- "{searchQuery}" did not match any Country name!</li>)
                         }
                     </ul>
                 </div>
