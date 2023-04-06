@@ -9,21 +9,24 @@
     background-color: $bg-clr;
     border-bottom: 2px solid $txt-clr;
 
-    div Image{
-        object-fit: none;
+    div img{
+        object-fit: center;
+        margin-right: 8px;
     }
     .navRoutes{
         display: flex;
         justify-content: center;
         align-items: center;
+        padding-right: 16px;
 
         li{
             margin: 4px;
             list-style-type: none;
-            font-weight: 600;
+            font-weight: 900;
             font-size: 20px;
             color: $txt-clr;
             cursor: pointer;
+            padding-right: 16px;
 
             &:active,&:hover{
                 text-decoration: underline;

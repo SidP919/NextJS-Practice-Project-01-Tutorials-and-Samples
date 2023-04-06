@@ -1,17 +1,24 @@
+import Head from "next/head"
+
 const CountryDetailsPage = ({country}) => {
 
     return(
         <div>
-            <h1>Country Details</h1>
-            <br/><h3>&nbsp;&nbsp;Country's Common Name: {country?.name?.common||"NA"}</h3>
-            <br/><h3>&nbsp;&nbsp;Country's Official Name: {country?.name?.official||"NA"}</h3>
-            <br/><h3>&nbsp;&nbsp;Country's Capital: {country?.capital?.[0]}{country?.capital?.[1]||""}</h3>
-            <br/><div>
-                <h3>&nbsp;&nbsp;Country's Flag: </h3>
-                &nbsp;&nbsp;<img src={country?.flags?.png||"/"} alt={country?.flags?.alt||"NA"}/>
+            <Head>
+                <title>{country?.name?.common||"NA"}</title>
+            </Head>
+            <div className="w-full bg-[#00e5ff] min-h-[80vh] flex flex-col justify-start items-center px-4">
+                <h1 className='text-4xl text-white font-extrabold p-1 underline'>Country Details</h1>
+                <br/><h3 className='text-xl text-white font-bold hover:skew-x-12 duration-300'>&nbsp;&nbsp;Country's Common Name: {country?.name?.common||"NA"}</h3>
+                <br/><h3 className='text-xl text-white font-bold hover:skew-x-12 duration-300'>&nbsp;&nbsp;Country's Official Name: {country?.name?.official||"NA"}</h3>
+                <br/><h3 className='text-xl text-white font-bold hover:skew-x-12 duration-300'>&nbsp;&nbsp;Country's Capital: {country?.capital?.[0]}{country?.capital?.[1]||""}</h3>
+                <br/><div>
+                    <h3 className='text-xl text-white font-bold hover:skew-x-12 duration-300'>&nbsp;&nbsp;Country's Flag: </h3>
+                    &nbsp;&nbsp;<img src={country?.flags?.png||"/"} alt={country?.flags?.alt||"NA"}/>
+                </div>
+                <br/><h3 className='text-xl text-white font-bold hover:skew-x-12 duration-300'>&nbsp;&nbsp;Country's Currency Code: {Object.keys(country?.currencies||{NA:"NA"})?.[0]||"NA"}</h3>
+                <br/><h3 className='text-xl text-white font-bold pb-4 hover:skew-x-12 duration-300'>&nbsp;&nbsp;Country's Currency Name: {country?.currencies?.[Object.keys(country?.currencies||"NA")?.[0]].name||"NA"}</h3> {/* Power of Javascript :D :D */}
             </div>
-            <br/><h3>&nbsp;&nbsp;Country's Currency Code: {Object.keys(country?.currencies||{NA:"NA"})?.[0]||"NA"}</h3>
-            <br/><h3>&nbsp;&nbsp;Country's Currency Name: {country?.currencies?.[Object.keys(country?.currencies||"NA")?.[0]].name||"NA"}</h3> {/* Power of Javascript :D :D */}
         </div>
     )
 }

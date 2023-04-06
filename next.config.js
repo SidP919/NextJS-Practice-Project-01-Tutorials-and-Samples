@@ -1,15 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  async redirects() {
-    return [
-      { 
-        source: '/',
-        destination:'/countries',
-        permanent:true
-      }
-    ]
-  },
   images: {
     loader: "akamai",
     path: "/",

@@ -1,9 +1,12 @@
+import Link from 'next/link';
 import styles from './../../styles/footer.module.scss'
 const Footer = () => {
     return(
         <div className={styles.footerStyle}>
-            <p>Copyright @ 2023</p>
-            <p>Developed by sidp0008@gmail.com</p>
+            <a href='https://github.com/SidP919/NextJS-Practice-Project-01-Tutorials-and-Samples'>
+                <p>Copyright &#64; 2023</p>
+                <p>GitHub.com/sidp919</p>
+            </a>
         </div>
     )
 }

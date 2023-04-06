@@ -3,6 +3,7 @@ import {useRef} from 'react'
 import {GiHamburgerMenu} from "react-icons/gi"
 import styles from '../../styles/header.module.scss'
 import {useRouter} from 'next/router'
+import Link from 'next/link'
 const Header = () => {
 
     const router = useRouter();
@@ -20,13 +21,29 @@ const Header = () => {
     return (
         <div className={styles.headerStyle}>
             <div>
-                <Image
-                    priority 
-                    src="/images/vercel.svg" 
-                    width={80} 
-                    height={40} 
-                    alt='app-logo'
-                 />
+                <Link href={'/'} className='flex justify-center'>
+                    <Image
+                        priority 
+                        src="/images/vercel.svg" 
+                        width={80} 
+                        height={40} 
+                        alt='app-logo'
+                    />
+                    <Image
+                        priority 
+                        src="/images/next.svg" 
+                        width={56} 
+                        height={56} 
+                        alt='app-logo'
+                    />
+                    <Image
+                        priority 
+                        src="/images/thirteen.svg" 
+                        width={20} 
+                        height={20} 
+                        alt='app-logo'
+                    />
+                </Link>
             </div>
             <div>
                 <ul className={styles.navRoutes}>
