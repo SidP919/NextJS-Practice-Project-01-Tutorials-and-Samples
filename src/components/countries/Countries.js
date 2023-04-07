@@ -38,7 +38,7 @@ const Countries = ({countryNames}) => {
                 <div>
                     <br/>
                     <ul>
-                        {(searchResult.length)?(searchResult?.map(
+                        {(searchResult?.length)?(searchResult?.map(
                             (country,i)=>(
                                 <li 
                                 key={i}

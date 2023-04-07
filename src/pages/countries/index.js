@@ -1,4 +1,6 @@
+import graphQLClient from '@/data/graphql/graphQLclient'
 import Countries from '../../components/countries/Countries'
+import { GET_COUNTRY_NAMES_QUERY } from '@/data/graphql/queries'
 const CountriesPage = ({countryNames}) => {
     return (
         <Countries countryNames={countryNames}/>
@@ -7,14 +9,13 @@ const CountriesPage = ({countryNames}) => {
 
 export async function getServerSideProps(context){
     try {
-        const countries = await fetch('https://restcountries.com/v3.1/all')
-        .then((res)=>res.json())
-        .catch((err)=>[])
+        const countries = await graphQLClient.request(GET_COUNTRY_NAMES_QUERY);
+        const countriesArr = JSON.parse(JSON.stringify(countries.countries))
         
         return (
             {
                 props: {
-                    countryNames:countries.map((country)=>(country?.name?.common || country?.name?.official || ""))
+                    countryNames:countriesArr.map((country)=>(country?.name||""))
                 }
             }
         )
