@@ -1,9 +1,20 @@
 import Head from 'next/head';
 import styles from './../../styles/countries.module.scss'
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import { setAlertStatus } from './../../features/alert/alertSlice'
+import NotifyAlert from '../alert/NotifyAlert';
+
 const Countries = ({countryNames}) => {
     const [searchQuery, setSearchQuery] = useState("");
     const [searchResult, setSearchResult] = useState(countryNames);
+
+    const open = useSelector((state) => state.showCountryDetails.value.openAlert);
+    const currentCountry = useSelector((state) => state.showCountryDetails.value.currentCountry);
+    console.log("currentCountry: ", currentCountry)
+    console.log("open: ", open)
+    const dispatch = useDispatch()
+
     const handleChange = (evt) => {
         setSearchQuery(evt.target.value)
         if(searchQuery.length>2){
@@ -44,8 +55,7 @@ const Countries = ({countryNames}) => {
                                 key={i}
                                 className={styles.country}
                                 >&nbsp;&nbsp;
-                                    <a href={
-                                        `./countries/${country}`}
+                                    <a onClick={()=>dispatch(setAlertStatus(country))}
                                     >{country}
                                     </a>
                                 </li>
@@ -54,6 +64,7 @@ const Countries = ({countryNames}) => {
                     </ul>
                 </div>
             </div>
+            <NotifyAlert/>
         </div>
     )
 }
