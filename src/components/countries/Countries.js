@@ -18,7 +18,7 @@ const Countries = ({countryNames}) => {
     const handleChange = (evt) => {
         setSearchQuery(evt.target.value)
         if(searchQuery.length>2){
-            setSearchResult(countryNames.filter((country)=>{
+            setSearchResult(countryNames?.filter((country)=>{
                 if(country.toLowerCase().indexOf(searchQuery.trim().toLowerCase())===-1)
                     return false;
                 else return true;

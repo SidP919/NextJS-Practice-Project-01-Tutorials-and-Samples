@@ -1,15 +1,14 @@
-import { Fragment, useEffect, useRef } from 'react'
+import { Fragment, useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
+
 import { useSelector, useDispatch } from 'react-redux'
 import { setAlertStatus } from './../../features/alert/alertSlice'
 import { Router, useRouter } from 'next/router'
 
-export default function NotifyAlert(props) {
+export default function NotifyAlert() {
   const open = useSelector((state) => state.showCountryDetails.value.openAlert);
   const currentCountry = useSelector((state) => state.showCountryDetails.value.currentCountry);
-  console.log("currentCountry: ", currentCountry)
-  console.log("open: ", open)
+
   const dispatch = useDispatch()
   const cancelButtonRef = useRef(null)
   const router = useRouter();
