@@ -3,7 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 
 import { useSelector, useDispatch } from 'react-redux'
 import { setAlertStatus } from './../../features/alert/alertSlice'
-import { Router, useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 
 export default function NotifyAlert() {
   const open = useSelector((state) => state.showCountryDetails.value.openAlert);

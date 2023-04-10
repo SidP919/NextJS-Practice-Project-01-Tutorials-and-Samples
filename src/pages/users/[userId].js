@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 const UserDetailsPage = ({user}) => {
-    console.log(user)
+    
     return(
         <div>
             <Head>
