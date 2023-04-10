@@ -1,8 +1,32 @@
 import Head from "next/head";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 const UserPage = ({users}) => {
 
+    const router = useRouter();
+    const sendNotification = (id) => {
+        Notification.requestPermission()
+        .then((permissionStatus)=>{
+            if(permissionStatus === 'granted'){
+                const notification = new Notification(
+                    "User Personal Data Access Notifier",
+                    {
+                        body: "Please note that accessing PI data of a user will be logged.\nPlease click only if you are sure about accessing it.",
+                        data: {userId:id},
+                        icon:"/images/vercel.svg",
+                        tag:"User Personal Data Access Notifier",
+                        renotify:true,
+                    }
+                );
+
+                notification.addEventListener("click", ()=>{
+                    console.log(`Data of User with user-id:${id} was accessed at ${new Date().toLocaleString()}`);
+                    router.push(`./users/${id}`)
+                });
+                notification.close();
+            }
+        })
+    }
     return(
         <div>
             <Head>
@@ -19,10 +43,11 @@ const UserPage = ({users}) => {
                         className='text-xl text-white font-bold pb-2 hover:skew-x-12 duration-300'
                     >
                     &nbsp;&nbsp;{i+1}&#62;
-                        <Link href={`/users/${i+1}`} 
-                            className='ml-3 text-xl text-white font-bold pb-2 hover:skew-x-12 duration-300 hover:underline'
+                        <p 
+                            onClick={()=>sendNotification(user.id)} 
+                            className='ml-3 cursor-pointer inline text-xl text-white font-bold pb-2 hover:skew-x-12 duration-300 hover:underline'
                         >{user.name}
-                        </Link>
+                        </p>
                     </li>)}
                 </ul>
             </div>
